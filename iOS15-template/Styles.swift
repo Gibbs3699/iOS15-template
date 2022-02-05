@@ -17,3 +17,9 @@ struct StrokeStyle: ViewModifier {
     }
 }
 
+// to use this, from .modifier(StrokeStyle()) can use to .strokeStyle()
+extension View {
+    func strokeStyle() -> some View {
+        modifier(StrokeStyle())
+    }
+}

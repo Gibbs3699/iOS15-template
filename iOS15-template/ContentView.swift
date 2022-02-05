@@ -18,6 +18,7 @@ struct ContentView: View {
                 .cornerRadius(20.0)
                 .padding(9)
                 .background(.ultraThinMaterial, in : RoundedRectangle(cornerRadius: 20, style: .continuous))
+                .strokeStyle()
             Text("SwiftUI for iOS 15")
                 .font(.largeTitle)
                 .fontWeight(.bold)
@@ -42,7 +43,7 @@ struct ContentView: View {
 //        .cornerRadius(30.0)
         //mask can used opacaty cornerRadius cant
 //        .mask(RoundedRectangle(cornerRadius: 30, style: .continuous))
-        .modifier(StrokeStyle())
+        .strokeStyle()
         .shadow(color: Color("Shadow").opacity(0.3), radius: 10, x: 0, y: 10)
         .padding(.horizontal, 20)
         .background(
