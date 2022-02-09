@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct AccountView: View {
+    @State var isDeleted = false
+    
     var body: some View {
         NavigationView {
             List {
@@ -22,7 +24,7 @@ struct AccountView: View {
                         .background(Image(systemName: "hexagon").symbolVariant(.fill)
                                         .foregroundColor(.blue)
                                         .font(.system(size: 200))
-                                    .offset(x: -50, y: -100))
+                                        .offset(x: -50, y: -100))
                     Text("The GIZzz")
                         .font(.title.weight(.semibold))
                     Image(systemName: "location")
@@ -31,7 +33,7 @@ struct AccountView: View {
                         .foregroundColor(.secondary)
                 }
                 .frame(maxWidth: .infinity)
-                        
+                
                 Section {
                     NavigationLink(destination: ContentView()) {
                         Label("Setting", systemImage: "gear")
@@ -50,12 +52,24 @@ struct AccountView: View {
                 
                 //data from API should us optional to prevent null
                 Section {
-                    Link(destination: URL(string: "https://apple.com")!) {
-                        HStack {
-                            Label("Apple", systemImage: "house")
-                            Spacer()
-                            Image(systemName: "link")
-                                .foregroundColor(.secondary)
+                    if !isDeleted {  Link(destination: URL(string: "https://apple.com")!) {
+                            HStack {
+                                Label("Apple", systemImage: "house")
+                                Spacer()
+                                Image(systemName: "link")
+                                    .foregroundColor(.secondary)
+                            }
+                        }
+                        .swipeActions(edge: .leading, allowsFullSwipe: false) {
+                            Button(action: { isDeleted = true}) {
+                                Label("Delete", systemImage: "trash")
+                            }
+                            .tint(.red.opacity(0.8))
+                            
+                            Button {} label : {
+                                Label("Pin", systemImage: "pin")
+                            }
+                            .tint(.yellow.opacity(0.8))
                         }
                     }
                     
