@@ -33,12 +33,44 @@ struct AccountView: View {
                 .frame(maxWidth: .infinity)
                         
                 Section {
-                    Label("Setting", systemImage: "gear")
-                    Label("Billing", systemImage: "creditcard")
-                    Label("Help", systemImage: "questionmark")
+                    NavigationLink(destination: ContentView()) {
+                        Label("Setting", systemImage: "gear")
+                    }
+                    NavigationLink { Text("Billing")} label: {
+                        Label("Billing", systemImage: "creditcard")
+                    }
+                    NavigationLink { Text("Help")} label: {
+                        Label("Help", systemImage: "questionmark")
+                    }
                 }
+                //inherite style from parents
+                .accentColor(.primary)
                 .listRowSeparatorTint(.blue) // seperator cplor
-    //                .listRowSeparator(.hidden)
+                .listRowSeparator(.hidden)
+                
+                //data from API should us optional to prevent null
+                Section {
+                    Link(destination: URL(string: "https://apple.com")!) {
+                        HStack {
+                            Label("Apple", systemImage: "house")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                    
+                    Link(destination: URL(string: "https://youtube.com")!) {
+                        HStack {
+                            Label("Youtube", systemImage: "tv")
+                            Spacer()
+                            Image(systemName: "link")
+                                .foregroundColor(.secondary)
+                        }
+                    }
+                }
+                //inherite style from parents
+                .accentColor(.primary)
+                .listRowSeparator(.hidden)
             }
             .listStyle(.automatic) //.automatic change following the platform
             .navigationTitle("Account")

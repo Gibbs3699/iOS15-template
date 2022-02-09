@@ -11,6 +11,7 @@ import SwiftUI
 struct iOS15_templateApp: App {
     var body: some Scene {
         WindowGroup {
+            //change intial screen when launching app
             ContentView()
         }
     }
