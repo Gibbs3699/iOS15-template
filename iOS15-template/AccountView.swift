@@ -36,10 +36,9 @@ struct AccountView: View {
                 .foregroundStyle(.blue, .blue.opacity(0.3)) //customize colors
                 .padding()
                 .background(Circle().fill(.ultraThinMaterial))
-                .background(Image(systemName: "hexagon").symbolVariant(.fill)
-                                .foregroundColor(.blue)
-                                .font(.system(size: 200))
-                                .offset(x: -50, y: -100))
+                .background(HexagonView()
+                    .offset(x: -50, y: -100))
+            
             Text("The GIZzz")
                 .font(.title.weight(.semibold))
             Image(systemName: "location")
