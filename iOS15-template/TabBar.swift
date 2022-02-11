@@ -9,18 +9,38 @@ import SwiftUI
 
 struct TabBar: View {
     var body: some View {
-        TabView {
+        ZStack(alignment: .bottom) {
             ContentView()
-                .tabItem {
+                .frame(maxWidth: .infinity, maxHeight: .infinity) //to send tabbar to bottom
+                .offset(y: 300)
+            HStack {
+                Spacer()
+                VStack {
                     Image(systemName: "house")
-                    Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+                        .symbolVariant(.fill) //custom
+                        .font(.body.bold())
+                        .frame(width: 80,height: 29)
+                    Text("Lean Now")
+                        .font(.caption2)
                 }
-            
-            AccountView()
-                .tabItem {
+                Spacer()
+                VStack {
                     Image(systemName: "magnifyingglass")
+                        .symbolVariant(.fill) //custom
+                        .font(.body.bold())
+                        .frame(width: 80,height: 29)
                     Text("Explore")
+                        .font(.caption2)
                 }
+                Spacer()
+            }
+            .padding(.top, 14)
+            .frame(height: 88, alignment: .top)
+            .background(.ultraThinMaterial, in:
+                RoundedRectangle(cornerRadius: 34, style: .continuous))
+            .strokeStyle(cornerRadius: 34) //to blur
+            .frame(maxHeight: .infinity, alignment: .bottom)
+            .ignoresSafeArea()
         }
     }
 }
