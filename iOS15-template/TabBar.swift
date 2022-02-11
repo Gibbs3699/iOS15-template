@@ -15,25 +15,21 @@ struct TabBar: View {
                 .offset(y: 300)
             HStack {
                 Spacer()
-                VStack {
-                    Image(systemName: "house")
-                        .symbolVariant(.fill) //custom
-                        .font(.body.bold())
-                        .frame(width: 80,height: 29)
-                    Text("Lean Now")
-                        .font(.caption2)
-                }
-                Spacer()
-                VStack {
-                    Image(systemName: "magnifyingglass")
-                        .symbolVariant(.fill) //custom
-                        .font(.body.bold())
-                        .frame(width: 80,height: 29)
-                    Text("Explore")
-                        .font(.caption2)
+                ForEach(tabItems) { item in
+                    VStack {
+                        Image(systemName: item.icon)
+                            .symbolVariant(.fill) //custom
+                            .font(.body.bold())
+                            .frame(width: 44,height: 29)
+                        Text(item.text)
+                            .font(.caption2) //small
+                            .lineLimit(1)
+                    }
+                    .frame(maxWidth: .infinity) // to make space equally
                 }
                 Spacer()
             }
+            .padding(.horizontal, 8)
             .padding(.top, 14)
             .frame(height: 88, alignment: .top)
             .background(.ultraThinMaterial, in:
