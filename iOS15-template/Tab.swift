@@ -12,12 +12,24 @@ struct TabItem: Identifiable {
     var id = UUID()
     var text: String
     var icon: String
+    var tab: Tab
 }
 
 var tabItems = [
     //id can let it auto generate
-    TabItem(text: "Learn Now", icon: "house"),
-    TabItem(text: "Explore", icon: "magnifyingglass"),
-    TabItem(text: "Notifications", icon: "bell"),
-    TabItem(text: "Library", icon: "rectangle.stack")
+    TabItem(text: "Learn Now", icon: "house", tab: .home),
+    TabItem(text: "Explore", icon: "magnifyingglass", tab: .explore),
+    TabItem(text: "Notifications", icon: "bell", tab: .notifications),
+    TabItem(text: "Library", icon: "rectangle.stack", tab: .library)
 ]
+
+// enum => list of constant, value will not change
+// great to use with predefined i.e. menu, tabbar, sidebar
+// great with easy to access
+enum Tab: String {
+    case home
+    case explore
+    case notifications
+    case library
+    
+}
