@@ -9,6 +9,7 @@ import SwiftUI
 
 struct TabBar: View {
     @State var selectedTab: Tab = .home
+    @State var color: Color = .teal
     
     var body: some View {
         ZStack(alignment: .bottom) {
@@ -41,7 +42,10 @@ struct TabBar: View {
                 Spacer()
                 ForEach(tabItems) { item in
                     Button {
-                        selectedTab = item.tab
+                        withAnimation(.spring(response: 0.3, dampingFraction: 0.5)) {
+                            selectedTab = item.tab
+                            color = item.color
+                        }
                     } label: {
                         VStack {
                             Image(systemName: item.icon)
@@ -55,6 +59,7 @@ struct TabBar: View {
                         .frame(maxWidth: .infinity)
                     } // to make space equally
                     .foregroundStyle(selectedTab == item.tab ? .primary : .secondary)
+                    .blendMode(selectedTab == item.tab ? .overlay : .normal)
                 }
                 Spacer()
             }
@@ -63,6 +68,46 @@ struct TabBar: View {
             .frame(height: 88, alignment: .top)
             .background(.ultraThinMaterial, in:
                 RoundedRectangle(cornerRadius: 34, style: .continuous))
+            .background(
+                HStack {
+                    if selectedTab == .library {Spacer()}
+                    if selectedTab == .explore {Spacer()}
+                    if selectedTab == .notifications {
+                        Spacer()
+                        Spacer()
+                    }
+                    Circle().fill(color).frame(width: 88)
+                    if selectedTab == .home {Spacer()}
+                    if selectedTab == .explore {
+                        Spacer()
+                        Spacer()
+                    }
+                    if selectedTab == .notifications {Spacer()}
+                }.padding(.horizontal,8)
+            )
+            .overlay(
+                HStack {
+                    if selectedTab == .library {Spacer()}
+                    if selectedTab == .explore {Spacer()}
+                    if selectedTab == .notifications {
+                        Spacer()
+                        Spacer()
+                    }
+                    Rectangle().fill(color)
+                        .frame(width: 28, height: 5)
+                        .cornerRadius(3)
+                        .frame(width: 88)
+                        .frame(maxHeight: .infinity, alignment: .top)
+                    if selectedTab == .home {Spacer()}
+                    if selectedTab == .explore {
+                        Spacer()
+                        Spacer()
+                    }
+                    if selectedTab == .notifications {Spacer()}
+
+                }
+                    .padding(.horizontal,18)
+            )
             .strokeStyle(cornerRadius: 34) //to blur
             .frame(maxHeight: .infinity, alignment: .bottom)
             .ignoresSafeArea()
