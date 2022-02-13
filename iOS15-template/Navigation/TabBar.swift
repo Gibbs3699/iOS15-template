@@ -13,49 +13,22 @@ struct TabBar: View {
     @State var tabItemWidth: CGFloat = 0
     
     var body: some View {
-        ZStack(alignment: .bottom) {
-            //            if selectedTab == .home {
-            //                ContentView()
-            //                    .frame(maxWidth: .infinity, maxHeight: .infinity) //to send tabbar to bottom
-            ////                    .offset(y: 300)
-            //            } else if selectedTab == .explore {
-            //                AccountView()
-            //
-            //            }
-                        
-            // used group to set modifier, group will inherite the modifier
-            Group {
-                //switch is more cleaner than if else, use with enum
-                switch selectedTab {
-                case .home:
-                    ContentView()
-                case .explore:
-                    AccountView()
-                case .notifications:
-                    AccountView()
-                case .library:
-                    AccountView()
-                }
-            }
-            .frame(maxWidth: .infinity, maxHeight: .infinity)
-            
-            HStack {
-                buttons
-            }
-            .padding(.horizontal, 8)
-            .padding(.top, 14)
-            .frame(height: 88, alignment: .top)
-            .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 34, style: .continuous))
-            .background(
-                background
-            )
-            .overlay(
-                overlay
-            )
-            .strokeStyle(cornerRadius: 34)
-            .frame(maxHeight: .infinity, alignment: .bottom)
-            .ignoresSafeArea()
+        HStack {
+            buttons
         }
+        .padding(.horizontal, 8)
+        .padding(.top, 14)
+        .frame(height: 88, alignment: .top)
+        .background(.ultraThinMaterial, in: RoundedRectangle(cornerRadius: 34, style: .continuous))
+        .background(
+            background
+        )
+        .overlay(
+            overlay
+        )
+        .strokeStyle(cornerRadius: 34)
+        .frame(maxHeight: .infinity, alignment: .bottom)
+        .ignoresSafeArea()
     }
     
     var buttons: some View {
@@ -139,6 +112,6 @@ struct TabBar: View {
 struct TabBar_Previews: PreviewProvider {
     static var previews: some View {
         TabBar()
-.previewInterfaceOrientation(.landscapeLeft)
+.previewInterfaceOrientation(.portrait)
     }
 }

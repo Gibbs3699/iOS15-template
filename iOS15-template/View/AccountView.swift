@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AccountView: View {
+    @AppStorage("selectedTab") var selectedTab: Tab = .home
     @State var isDeleted = false
     @State var isPinned = false
     
