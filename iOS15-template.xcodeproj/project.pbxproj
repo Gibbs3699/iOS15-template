@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		842E647F27C3F07600DE8E32 /* AnimatableFontModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 842E647E27C3F07600DE8E32 /* AnimatableFontModifier.swift */; };
 		846817FE27AED945001D3600 /* Styles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 846817FD27AED945001D3600 /* Styles.swift */; };
 		847F25FD27B4191D00599889 /* HexagonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F25FC27B4191D00599889 /* HexagonView.swift */; };
 		847F25FF27B420E800599889 /* BlobView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 847F25FE27B420E800599889 /* BlobView.swift */; };
@@ -24,6 +25,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		842E647E27C3F07600DE8E32 /* AnimatableFontModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimatableFontModifier.swift; sourceTree = "<group>"; };
 		846817FD27AED945001D3600 /* Styles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Styles.swift; sourceTree = "<group>"; };
 		847F25FC27B4191D00599889 /* HexagonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HexagonView.swift; sourceTree = "<group>"; };
 		847F25FE27B420E800599889 /* BlobView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlobView.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				846817FD27AED945001D3600 /* Styles.swift */,
+				842E647E27C3F07600DE8E32 /* AnimatableFontModifier.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -219,6 +222,7 @@
 				84AA950C27BFFAE900DF7E49 /* FeaturedItem.swift in Sources */,
 				84AA951027C0C0E600DF7E49 /* PreferenceKeys.swift in Sources */,
 				84C0568827B618860025DA86 /* TabBar.swift in Sources */,
+				842E647F27C3F07600DE8E32 /* AnimatableFontModifier.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
